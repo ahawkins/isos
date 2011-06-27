@@ -1,0 +1,22 @@
+!!! 5
+
+%html
+  %head
+    %title In Search of Sunrise
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body{:data => {:background_images => background_images.to_json }}
+
+    %section#header
+      %h1 In Search of Sunrise
+
+    %nav
+      = link_to 'Music', '#'
+      = link_to 'Images', '#'
+      = link_to 'Places', '#'
+      = link_to 'Messages', '#'
+
+    %section#content
+      = yield

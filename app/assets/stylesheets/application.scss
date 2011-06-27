@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Big Joe;
+  src: url('/assets/big_joe.otf');
+}
+
+html {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  background: transparent;
+}
+
+#header h1 {
+  font-family: Big Joe;
+  font-size: 64px;
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+}
+
+body > section, body > nav {
+  width: 960px;
+  margin: 0 auto;
+}
+
+body > section:first-child {
+  margin-top: 25px;
+}
+
+nav {
+  text-align: center;
+  padding: 40px 0;
+}
+
+nav a {
+  margin: 0 20px;
+  font-family: Big Joe;
+  font-size: 32px;
+  text-decoration: none;
+  color: white;
+
+  &:hover, &:active, &:visited {
+    color: white;
+  }
+}
+
+#content > ol > li {
+  margin: 20px 0;
+  font-family: Big Joe;
+  font-size: 28px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+
+  &:hover, &:active, &:visited {
+    color: white;
+  }
+}
