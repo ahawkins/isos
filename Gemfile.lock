@@ -108,6 +108,7 @@ GEM
     multipart-post (1.1.2)
     nokogiri (1.4.5)
     notifiers (1.1.0)
+    pg (0.11.0)
     polyglot (0.3.1)
     rack (1.3.0)
     rack-cache (1.0.2)
@@ -210,6 +211,7 @@ DEPENDENCIES
   heroku
   infinity_test
   jquery-rails
+  pg
   rails (= 3.1.0.rc4)
   rspec-rails
   sass-rails (~> 3.1.0.rc)
