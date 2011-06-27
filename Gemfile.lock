@@ -49,10 +49,6 @@ GEM
     celerity (0.8.9)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
-    coffee-script (2.2.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.1.1)
     configuration (1.2.0)
     crack (0.1.8)
     cucumber (0.10.7)
@@ -203,7 +199,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   capybara-webkit
-  coffee-script
   cucumber-rails
   haml
   heroku
