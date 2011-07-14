@@ -1,0 +1,7 @@
+<ol id="pictures">
+  <% @pictures.all.each do |picture| %>
+    <%= content_tag_for :li, picture do %>
+      <%= image_tag picture.image.thumb.url %>
+    <% end %>
+  <% end %>
+</ol>

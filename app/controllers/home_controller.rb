@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+  def index
+    #@picture = Picture.find '4e1e1c974cfad15dcf000007'
+    @picture = Picture.all[rand(Picture.count)]
+  end
+
   def music
 
   end
@@ -7,8 +12,8 @@ class HomeController < ApplicationController
 
   end
 
-  def images
-
+  def pictures
+    @pictures = Picture.all
   end
 
   def messages

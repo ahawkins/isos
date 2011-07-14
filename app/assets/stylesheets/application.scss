@@ -3,6 +3,11 @@
   src: url('/assets/big_joe.otf');
 }
 
+@font-face {
+  font-family: Bebas;
+  src: url('/assets/bebas.ttf');
+}
+
 html {
   background-repeat: no-repeat;
   background-position: center center;
@@ -20,6 +25,12 @@ body {
   text-align: center;
   padding: 20px 0;
   color: white;
+  text-shadow: 2px 2px 2px #000;
+
+  a, a:hover, a:visited, a:active {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 body > section, body > nav {
@@ -42,6 +53,7 @@ nav a {
   font-size: 32px;
   text-decoration: none;
   color: white;
+  text-shadow: 1px 1px 1px #000;
 
   &:hover, &:active, &:visited {
     color: white;

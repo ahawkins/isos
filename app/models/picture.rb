@@ -1,4 +1,5 @@
 require 'carrierwave/orm/mongoid'
+require 'open-uri'
 
 class Picture
   extend ActiveSupport::Memoizable
@@ -9,21 +10,27 @@ class Picture
 
   mount_uploader :image, PictureUploader
   field :taken_at, :type => Time
-  field :description, :type => String
 
   embeds_one :location
+
+  scope :most_recent, order_by(['taken_at', :desc]).limit(1)
 
   before_create :make_location
   before_create :set_timestamp
 
   index :taken_at
 
+
   def has_location?
     exif.gps_latitude && exif.gps_longitude
   end
 
   def exif
-    EXIFR::JPEG.new(image.file.file)
+    if new_record?
+      EXIFR::JPEG.new(image.file.file)
+    else
+      EXIFR::JPEG.new(open(image.url))
+    end
   end
   memoize :exif
 
@@ -43,6 +50,6 @@ class Picture
   end
 
   def set_timestamp
-    self.taken_at = exif.date_time
+    self.taken_at = exif.date_time || exif.date_time_original
   end
 end

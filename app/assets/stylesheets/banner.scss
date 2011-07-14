@@ -1,0 +1,62 @@
+#banner {
+  margin: 0 auto;
+  position: relative;
+  width: 576px;
+  height: 432px;
+  border: solid 1px #DEDEDE;
+  box-shadow: 0 1px 30px rgba(0,0,0,.9);
+
+  img {
+    position: absolute;
+    z-index: 100;
+  }
+
+  #message {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    width: 576px;
+    color: #DEDEDE;
+    background-color: rgba(0, 0, 0, .5);
+    border-bottom: solid 1px rgba(0, 0, 0, .2);
+    font-family: Helvetica, Arial;
+    font-size: 12px;
+
+    p {
+      padding: 10px;
+    }
+  }
+
+  #track {
+    position: absolute;
+    z-index: 101;
+    bottom: 36px;
+    width: 576px;
+    color: #DEDEDE;
+    background-color: rgba(0, 0, 0, .8);
+    border-bottom: solid 1px rgba(0, 0, 0, .6);
+    border-top: solid 1px rgba(0, 0, 0, .6);
+    font-family: Bebas;
+    font-size: 14px;
+    word-spacing: 4px;
+
+    p {
+      padding: 10px;
+      text-align: right;
+    }
+  }
+
+  #location {
+    position: absolute;
+    z-index: 101;
+    bottom: 5px;
+    font-family: Big Joe;
+    font-size: 62px;
+    color: #DEDEDE;
+    text-shadow: 1px 1px 1px #000;
+
+    p {
+      padding: 15px;
+    }
+  }
+}

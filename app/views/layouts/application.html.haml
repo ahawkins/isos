@@ -10,11 +10,11 @@
   %body{:data => {:background_images => background_images.to_json }}
 
     %section#header
-      %h1 In Search of Sunrise
+      %h1= link_to 'In Search of Sunrise', root_path
 
     %nav
       = link_to 'Music', '#'
-      = link_to 'Images', '#'
+      = link_to 'Pictures', pictures_path
       = link_to 'Places', '#'
       = link_to 'Messages', '#'
 
