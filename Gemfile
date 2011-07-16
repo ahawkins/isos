@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc4'
+gem 'rake', '0.8.7'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -19,6 +20,7 @@ gem 'bson_ext'
 gem 'exifr'
 gem 'fog'
 gem 'rmagick'
+gem 'mechanize'
 
 group :production do
   gem "therubyracer-heroku", "~> 0.8.1.pre3"
@@ -34,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'infinity_test'
+  gem 'ruby-debug19'
 end
 
 group :test do
@@ -41,6 +44,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'webmock'
+  gem 'mongoid-rspec'
 end
 
 # Use unicorn as the web server

@@ -11,15 +11,21 @@ class Picture
   mount_uploader :image, PictureUploader
   field :taken_at, :type => Time
 
-  embeds_one :location
+  embedded_in :post
 
   scope :most_recent, order_by(['taken_at', :desc]).limit(1)
 
-  before_create :make_location
   before_create :set_timestamp
 
-  index :taken_at
+  index [:taken_at, :desc]
 
+  def latitude
+    gps_coords[0] if has_location?
+  end
+
+  def longitude
+    gps_coords[1] if has_location?
+  end
 
   def has_location?
     exif.gps_latitude && exif.gps_longitude
@@ -35,11 +41,6 @@ class Picture
   memoize :exif
 
   private
-  def make_location
-    return unless has_location?
-    create_location :latitude => gps_coords.first, :longitude => gps_coords.last, :name => location_name
-  end
-
   def gps_coords
     lat = exif.gps_latitude[0].to_f + (exif.gps_latitude[1].to_f / 60) + (exif.gps_latitude[2].to_f / 3600)
     long = exif.gps_longitude[0].to_f + (exif.gps_longitude[1].to_f / 60) + (exif.gps_longitude[2].to_f / 3600)
@@ -48,6 +49,7 @@ class Picture
 
     [lat, long]
   end
+  memoize :gps_coords
 
   def set_timestamp
     self.taken_at = exif.date_time || exif.date_time_original

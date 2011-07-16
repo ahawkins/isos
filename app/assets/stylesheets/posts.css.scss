@@ -1,4 +1,8 @@
-#banner {
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post.with-image {
   margin: 0 auto;
   position: relative;
   width: 576px;
@@ -11,7 +15,7 @@
     z-index: 100;
   }
 
-  #message {
+  .message {
     position: absolute;
     z-index: 101;
     top: 0;
@@ -27,7 +31,7 @@
     }
   }
 
-  #track {
+  .track {
     position: absolute;
     z-index: 101;
     bottom: 36px;
@@ -39,6 +43,7 @@
     font-family: Bebas;
     font-size: 14px;
     word-spacing: 4px;
+    min-height: 34px;
 
     p {
       padding: 10px;
@@ -46,7 +51,7 @@
     }
   }
 
-  #location {
+  .location {
     position: absolute;
     z-index: 101;
     bottom: 5px;

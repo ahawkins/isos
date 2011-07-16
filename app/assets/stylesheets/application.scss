@@ -34,7 +34,7 @@ body {
 }
 
 body > section, body > nav {
-  width: 960px;
+  width: 620px;
   margin: 0 auto;
 }
 
@@ -44,29 +44,33 @@ body > section:first-child {
 
 nav {
   text-align: center;
-  padding: 40px 0;
+  padding: 30px 0;
 }
 
 nav a {
+  display: inline-block;
   margin: 0 20px;
   font-family: Big Joe;
   font-size: 32px;
   text-decoration: none;
   color: white;
   text-shadow: 1px 1px 1px #000;
+  height: 70px;
 
   &:hover, &:active, &:visited {
     color: white;
   }
 }
 
-#content > ol > li {
-  margin: 20px 0;
+#music > ol > li {
+  margin: 5px 0;
   font-family: Big Joe;
   font-size: 28px;
   text-decoration: none;
+  text-align: center;
   color: white;
   text-shadow: 1px 1px 1px #000;
+  height: 60px;
 
   &:hover, &:active, &:visited {
     color: white;
