@@ -174,7 +174,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
-    rake (0.8.7)
+    rake (0.9.2)
     rdoc (3.8)
     rest-client (1.6.3)
       mime-types (>= 1.16)
@@ -271,7 +271,6 @@ DEPENDENCIES
   mongoid-rspec
   pg
   rails (= 3.1.0.rc4)
-  rake (= 0.8.7)
   rmagick
   rspec-rails
   ruby-debug19
