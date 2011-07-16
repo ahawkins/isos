@@ -9,6 +9,6 @@ test:
   bucket: 'in-search-of-sunrise-test'
 
 production:
-  access_key: ENV['S3_ACCESS_KEY'] 
-  secret_access_key: ENV['S3_SECRET_KEY']
+  access_key: <%= ENV['S3_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['S3_SECRET_KEY'] %>
   bucket: 'in-search-of-sunrise'
