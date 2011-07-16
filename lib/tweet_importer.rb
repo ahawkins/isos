@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'ruby-debug'
 class TweetImporter
   def self.import!(tweet)
     return if Post.exists?(:conditions => {:twitter_id => tweet.id})
