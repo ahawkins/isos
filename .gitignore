@@ -5,3 +5,5 @@ tmp/
 .sass-cache/
 .DS_Store
 public/uploads
+!config/carrierwave.yml
+
