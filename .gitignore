@@ -6,4 +6,5 @@ tmp/
 .DS_Store
 public/uploads
 !config/carrierwave.yml
+!config/mongoid.yml
 
