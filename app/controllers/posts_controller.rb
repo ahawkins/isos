@@ -10,4 +10,8 @@ class PostsController < ApplicationController
   def music
     @posts = Post.with_track.all
   end
+
+  def places
+    @posts = Post.all
+  end
 end

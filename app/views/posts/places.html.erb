@@ -1,0 +1,7 @@
+<% content_for :head do
+  <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js' %>
+<% end 
+
+<section id="places" data-places="<%= @places.to_json %>">
+
+</section>
