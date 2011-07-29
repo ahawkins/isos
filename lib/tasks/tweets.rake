@@ -12,3 +12,16 @@ task :scrape => :environment do
     TweetImporter.import! tweet
   end
 end
+
+desc "Sync development db with current db since twitter is a cunt"
+task :sync => :environment do
+  require 'twitter_scraper'
+  require 'tweet_importer'
+
+  hashes = JSON.parse(open('http://isos.broadcastingadam.com/posts.json').read)
+  twitter_ids = hashes.map {|h| h['twitter_id'] }
+
+  TwitterScraper.from_ids(twitter_ids).each do |tweet|
+    TweetImporter.import! tweet
+  end
+end

@@ -9,6 +9,12 @@ class TwitterScraper
     search.fetch.map {|t| Tweet.new(t) }
   end
 
+  def self.from_ids(twitter_ids)
+    twitter_ids.map do |twitter_id|
+      Tweet.new(Twitter.status(twitter_id))
+    end
+  end
+
   class Tweet
     def initialize(tweet)
       @tweet = tweet
