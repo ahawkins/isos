@@ -13,5 +13,7 @@ class PostsController < ApplicationController
 
   def places
     @posts = Post.all
+
+    render :layout => 'places'
   end
 end
