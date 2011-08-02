@@ -12,6 +12,7 @@ class Post
 
   scope :with_picture, where(:picture.exists => true)
   scope :with_track, where(:track.exists => true)
+  scope :with_latitude_and_longitude, where('location.latitude'.exists => true, 'location.longitude'.exists => true)
 
   default_scope order_by([:posted_at, :desc])
 

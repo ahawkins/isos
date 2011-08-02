@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def places
-    @posts = Post.all
+    @posts = Post.with_latitude_and_longitude.all
 
     render :layout => 'places'
   end
