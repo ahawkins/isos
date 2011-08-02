@@ -6,6 +6,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = yield :head
 
   %body{:data => {:background_images => background_images.to_json }}
 
@@ -15,5 +16,6 @@
     %nav
       = link_to 'Pictures', pictures_posts_path
       = link_to 'Music', music_posts_path
+      = link_to 'Places', places_posts_path
 
     = yield

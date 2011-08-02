@@ -2,6 +2,8 @@
 $(function() {
   var images = $('body').data('background_images');
 
+  if(images === undefined) { return; }
+
   var currentHour = (new Date()).getHours();
 
   var set = [];

@@ -1,0 +1,25 @@
+<%- content_for :head do %>
+  <script type="text/javascript">
+    var ISOS = {};
+    ISOS.posts = <%= @posts.to_json.html_safe %>
+  </script>
+<% end %>
+
+<div id='map'>
+</div>
+
+<div id="overlay">
+</div>
+
+<% @posts.each do |post| %>
+  <%= render :partial => 'posts/with_picture', :locals => {:post => post }if post.picture %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <%= div_for post, :popup  do %>
+    <p>
+      <span class="location"><%= post.location.name %></span>
+      <span class="message"><%= post.message %></span>
+    </p>
+  <% end %>
+<% end %>

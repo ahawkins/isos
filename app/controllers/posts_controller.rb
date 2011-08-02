@@ -19,4 +19,10 @@ class PostsController < ApplicationController
 
     respond_with @posts
   end
+
+  def places
+    @posts = Post.all
+
+    render :layout => 'places'
+  end
 end
