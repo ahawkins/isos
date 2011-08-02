@@ -3,8 +3,8 @@ class Location
   include Mongoid::Timestamps
 
   field :name, :type => String
-  field :longitude, :type => Float
-  field :latitude, :type => Float
+  field :longitude, :type => BigDecimal
+  field :latitude, :type => BigDecimal
 
   embedded_in :post
 
