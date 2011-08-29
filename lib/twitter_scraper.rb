@@ -15,6 +15,10 @@ class TwitterScraper
     end
   end
 
+  def self.find(id)
+    Tweet.new(Twitter.status(id))
+  end
+
   class Tweet
     def initialize(tweet)
       @tweet = tweet
@@ -76,21 +80,38 @@ class TwitterScraper
     end
 
     def picture
-      return unless twitpic_link
+      return unless picture_link
 
       agent = Mechanize.new
-      page = agent.get twitpic_link
-      page = page.links.find {|l| l.href =~ /full/ }.click
-      page.search('//body/img').first.attr('src')
+      page = agent.get picture_link
+
+      if page.uri.host =~ /twitpic/i
+        TwitPicScraper.scrape page
+      elsif page.uri.host =~ /yfrog/
+        YFrogScraper.scrape page
+      end
     end
 
     private
-    def twitpic_link
+    def picture_link
       match = text.match(/(http:\/\/.+\/.+)/)
       if match
         match[1]
       else
         nil
+      end
+    end
+
+    class YFrogScraper
+      def self.scrape(page)
+        page.link_with(:text => 'Direct').href
+      end
+    end
+
+    class TwitPicScraper
+      def self.scrape(page)
+        page = page.links.find {|l| l.href =~ /full/ }.click
+        page.search('//body/img').first.attr('src')
       end
     end
   end

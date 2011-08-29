@@ -18,7 +18,7 @@ class Post
 
   delegate :exif, :to => :picture
 
-  index [:posted_at, :desc]
+  index :posted_at
 
   validates_presence_of :location
 end
