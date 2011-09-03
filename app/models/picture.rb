@@ -4,7 +4,6 @@ require 'open-uri'
 class Picture
   extend ActiveSupport::Memoizable
   include Mongoid::Document
-  include Mongoid::Timestamps
 
   attr_accessor :location_name
 

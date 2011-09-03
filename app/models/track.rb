@@ -1,6 +1,5 @@
 class Track
   include Mongoid::Document
-  include Mongoid::Timestamps
 
   field :artist, :type => String
   field :name, :type => String
