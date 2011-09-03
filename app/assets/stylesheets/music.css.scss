@@ -1,0 +1,14 @@
+#music > ol > li {
+  margin: 5px 0;
+  font-family: Big Joe;
+  font-size: 28px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+  height: 60px;
+
+  &:hover, &:active, &:visited {
+    color: white;
+  }
+}

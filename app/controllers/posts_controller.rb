@@ -2,8 +2,11 @@ class PostsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with @post do |wants|
-      wants.html { @post = Post.with_picture.first }
+    respond_to do |wants|
+      wants.html do
+        @posts = Post.with_picture.all
+        render :layout => 'index'
+      end
       wants.json { render :json => Post.all }
     end
   end

@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = yield :head
 
-  %body{:data => {:background_images => background_images.to_json }}
+  %body.application{:data => {:background_images => background_images.to_json }}
 
     %section#header
       %h1= link_to 'In Search of Sunrise', root_path

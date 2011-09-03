@@ -7,6 +7,10 @@ class PictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [576, 432]
   end
 
+  version :wall do
+    process :resize_to_fit => [360, 270]
+  end
+
   version :thumb do
     process :resize_to_fit => [115, 86]
   end
@@ -19,7 +23,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  #   "/images/fallback/" + [version_name, "default.png"].compact.oin('_')
   # end
 
   # Process files as they are uploaded:
