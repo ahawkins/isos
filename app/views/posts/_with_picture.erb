@@ -1,4 +1,5 @@
 <%= div_for post, :class => 'with-image' do %>
+  <% Rails.logger.info post.picture.image %>
   <%= image_tag post.picture.image.gallery.url %>
   <div class="message">
     <p><%= post.message %></p>
