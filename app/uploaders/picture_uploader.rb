@@ -4,15 +4,15 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   version :gallery do
-    process :resize_to_fit => [576, 432]
+    process :resize_to_fill => [576, 432]
   end
 
   version :wall do
-    process :resize_to_fit => [360, 270]
+    process :resize_to_fill => [360, 270]
   end
 
   version :thumb do
-    process :resize_to_fit => [115, 86]
+    process :resize_to_fill => [115, 86]
   end
 
   # Override the directory where uploaded files will be stored.
