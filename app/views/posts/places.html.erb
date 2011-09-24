@@ -18,7 +18,9 @@
 <% @posts.each do |post| %>
   <%= div_for post, :popup  do %>
     <p>
-      <span class="location"><%= post.location.name %></span>
+      <% if post.location.name.present? %>
+        <span class="location"><%= post.location.name %></span>
+      <% end %>
       <span class="message"><%= post.message %></span>
     </p>
   <% end %>
