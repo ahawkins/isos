@@ -13,7 +13,6 @@ class Post
   scope :with_picture, where(:picture.exists => true)
   scope :with_track, where(:track.exists => true)
   scope :with_latitude_and_longitude, where(:'location.latitude'.exists => true, :'location.longitude'.exists => true)
-  scope :locations, where(:'location.name'.exists => true).order_by('location.name ASC').distinct('location.name')
 
   default_scope order_by([:posted_at, :desc])
 
@@ -22,4 +21,8 @@ class Post
   index :posted_at
 
   validates_presence_of :location
+
+  def self.locations 
+    Post.unscoped.where(:'location.name'.exists => true).order_by('location.name ASC').distinct('location.name').compact
+  end
 end
