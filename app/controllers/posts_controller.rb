@@ -23,9 +23,15 @@ class PostsController < ApplicationController
     respond_with @posts
   end
 
-  def places
+  def map
     @posts = Post.with_latitude_and_longitude.all
 
-    render :layout => 'places'
+    render :layout => 'map'
+  end
+
+  def places
+    @posts = Post.with_location.all
+
+    respond_with @posts
   end
 end

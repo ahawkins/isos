@@ -9,8 +9,7 @@ Isos::Application.routes.draw do
       get :music
       get :places
       get :pictures
-      get :messages
+      get :map
     end
   end
 end
-
