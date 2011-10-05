@@ -30,8 +30,8 @@ class PostsController < ApplicationController
   end
 
   def places
-    @posts = Post.with_location.all
+    @locations = Post.locations
 
-    respond_with @posts
+    respond_with @locations
   end
 end
