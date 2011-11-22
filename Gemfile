@@ -17,6 +17,7 @@ gem 'exifr'
 gem 'fog'
 gem 'rmagick'
 gem 'mechanize'
+gem 'heroku'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -29,22 +30,15 @@ group :production do
   gem 'thin'
 end
 
-group :development do
-  gem 'heroku'
-end
-
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'cucumber-rails'
   gem 'infinity_test'
   gem 'ruby-debug19'
 end
 
 group :test do
   gem 'simplecov'
-  gem 'capybara'
-  gem 'capybara-webkit'
   gem 'webmock'
   gem 'mongoid-rspec'
 end
