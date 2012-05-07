@@ -33,8 +33,6 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'infinity_test'
-  gem 'ruby-debug19'
 end
 
 group :test do
