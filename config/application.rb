@@ -46,5 +46,8 @@ module Isos
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # don't boot the entire app
+    config.initialize_on_precompile = false
   end
 end
