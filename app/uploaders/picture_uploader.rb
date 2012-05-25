@@ -1,7 +1,12 @@
 # encoding: utf-8
 
+require 'carrierwave/processing/mime_types'
+
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
+  include CarrierWave::MimeTypes
+
+  process :set_content_type
 
   version :gallery do
     process :resize_to_fill => [576, 432]
@@ -41,6 +46,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg)
+    %w(jpg jpeg png)
   end
 end

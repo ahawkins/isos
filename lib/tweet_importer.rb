@@ -1,4 +1,5 @@
 require 'open-uri'
+
 class TweetImporter
   def self.import!(tweet)
     return if Post.exists?(:conditions => {:twitter_id => tweet.id})
@@ -14,8 +15,11 @@ class TweetImporter
         post.build_track :artist => tweet.artist, :name => tweet.track_name
       end
 
-      if tweet.picture
+      if tweet.picture && tweet.picture.is_a?(String)
         post.create_picture :remote_image_url => tweet.picture, :location_name => tweet.location
+      elsif tweet.picture
+        post.create_picture :image => tweet.picture, :location_name => tweet.location
+        puts 'weee'
       end
 
       if post.picture && post.picture.has_location?
@@ -36,6 +40,7 @@ class TweetImporter
     rescue Exception => ex
       puts "Error occured, continuing on COMMANDER"
       puts ex
+      puts ex.backtrace.join("\n") if Rails.env == 'development'
     end
   end
 end

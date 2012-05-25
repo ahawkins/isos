@@ -89,6 +89,8 @@ class TwitterScraper
         TwitPicScraper.scrape page
       elsif page.uri.host =~ /yfrog/
         YFrogScraper.scrape page
+      elsif page.uri.host =~ /twitter/
+        TwitterPhotoScraper.scrape page
       end
     end
 
@@ -112,6 +114,21 @@ class TwitterScraper
       def self.scrape(page)
         page = page.links.find {|l| l.href =~ /full/ }.click
         page.search('//body/img').first.attr('src')
+      end
+    end
+
+    class TwitterPhotoScraper
+      def self.scrape(page)
+        tweet_id = page.uri.to_s.split('/').reverse[2]
+
+        page = page.links.select { |l| l.href == "#{page.uri}/large" }.first.click
+        src = page.search("img.large.media-slideshow-image").first.attr('src')
+
+        full_path = Rails.root.join "tmp", "#{tweet_id}.jpg"
+
+        Curl::Easy.download(src, full_path)
+
+        File.open full_path
       end
     end
   end

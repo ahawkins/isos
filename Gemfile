@@ -18,6 +18,7 @@ gem 'fog'
 gem 'rmagick'
 gem 'mechanize'
 gem 'heroku'
+gem 'curb'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -33,6 +34,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'debugger'
 end
 
 group :test do
