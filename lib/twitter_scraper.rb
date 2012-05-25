@@ -126,6 +126,8 @@ class TwitterScraper
 
         full_path = Rails.root.join "tmp", "#{tweet_id}.jpg"
 
+        puts "Downloading #{src} -> #{full_path}"
+
         Curl::Easy.download(src, full_path)
 
         File.open full_path
