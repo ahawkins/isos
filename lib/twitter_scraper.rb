@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class TwitterScraper
   FEED = 'Adman65'
   HASH_TAG = '#isos'
@@ -20,6 +22,8 @@ class TwitterScraper
   end
 
   class Tweet
+    extend ActiveSupport::Memoizable
+
     def initialize(tweet)
       @tweet = tweet
     end
@@ -93,6 +97,7 @@ class TwitterScraper
         TwitterPhotoScraper.scrape page
       end
     end
+    memoize :picture
 
     private
     def picture_link
@@ -124,8 +129,8 @@ class TwitterScraper
         page = page.links.select { |l| l.href == "#{page.uri}/large" }.first.click
         src = page.search("img.large.media-slideshow-image").first.attr('src')
 
-        full_path = Rails.root.join "tmp", "#{tweet_id}.jpg"
-
+        FileUtils.mkdir_p Rails.root.join("tmp", "pictures")
+        full_path = Rails.root.join "tmp", "pictures", "#{tweet_id}.jpg"
         puts "Downloading #{src} -> #{full_path}"
 
         Curl::Easy.download(src, full_path)

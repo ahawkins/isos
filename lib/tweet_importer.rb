@@ -19,7 +19,6 @@ class TweetImporter
         post.create_picture :remote_image_url => tweet.picture, :location_name => tweet.location
       elsif tweet.picture
         post.create_picture :image => tweet.picture, :location_name => tweet.location
-        puts 'weee'
       end
 
       if post.picture && post.picture.has_location?
