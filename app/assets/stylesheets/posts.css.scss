@@ -1,7 +1,3 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .post.with-image {
   margin: 0 auto;
   position: relative;
@@ -54,15 +50,11 @@
   .location {
     position: absolute;
     z-index: 101;
-    bottom: 5px;
-    font-family: Big Joe;
-    font-size: 62px;
+    bottom: 40px;
+    left: 10px;
+    font-family: 'Rock Salt';
+    font-size: 30px;
     color: #DEDEDE;
     text-shadow: 1px 1px 1px #000;
-
-    p {
-      padding: 15px;
-      word-spacing: 4px;
-    }
   }
 }

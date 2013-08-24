@@ -1,16 +1,6 @@
 development:
-  host: localhost
-  database: isos_development
-
-test:
-  host: localhost
-  database: isos_test
-
-# set these environment variables on your prod server
-production:
-  uri: <%= ENV['MONGOHQ_URL'] %>
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
+  sessions:
+    default:
+      database: isos_development
+      hosts:
+        - localhost:27017

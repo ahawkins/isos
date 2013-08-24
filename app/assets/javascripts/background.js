@@ -1,6 +1,6 @@
 // pick a background image based on what time of day it is
 $(function() {
-  var images = $('body').data('background_images');
+  var images = $('body').data('backgroundImages');
 
   if(images === undefined) { return; }
 

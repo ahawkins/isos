@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Isos::Application.config.secret_token = '33a5b351ef8bfc1c68ba7ed0b512ac677b6b4356657c6fb323cd4ae9360d955560b59e405a0e22d9a2cd7ff5852e8c786f7ffefd2209d9c516b5b5932454ccb1'
+Isos::Application.config.secret_token = 'a7e288e50e929a743ffc193c91f0c5ad5b7b928b229c51c39e981c8928f7eeb8737c507f583581d75163fd4fb222b0fc0ca66030522e2923a0406a99f7109f48'

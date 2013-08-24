@@ -11,7 +11,7 @@
     box-shadow: 0 1px 30px rgba(0,0,0,.9);
     height: 100px;
     text-align: center;
-    font-family: Big Joe;
+    font-family: 'Rock Salt';
     color: white;
     font-weight: normal;
     text-shadow: 2px 2px 2px #000;
@@ -22,20 +22,20 @@
     }
 
     h1 {
-      font-size: 96px;
+      font-size: 60px;
     }
 
     h2, nav {
-      font-size: 32px;
+      font-size: 24px;
       position: relative;
     }
 
     h2 {
-      top: -45px;
+      top: -80px;
     }
 
     nav {
-      top: 25px;
+      top: 100px;
 
       a {
         margin: 0 20px;
@@ -48,7 +48,7 @@
 
     td {
       border: solid 5px black;
-      img { 
+      img {
         width: 360px;
         height: 270px;
         display: block;

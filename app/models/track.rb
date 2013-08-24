@@ -6,7 +6,7 @@ class Track
 
   embedded_in :post
 
-  index [:artist, :asc]
+  index arist: 1
 
   def to_s
     "#{artist} - #{name}"

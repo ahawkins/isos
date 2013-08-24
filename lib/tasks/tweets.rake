@@ -21,7 +21,7 @@ task :sync => :environment do
   hashes = JSON.parse(open('http://isos.broadcastingadam.com/posts.json').read)
   twitter_ids = hashes.map {|h| h['twitter_id'] }.compact
 
-  TwitterScraper.from_ids(twitter_ids).each do |tweet|
+  TwitterScraper.from_ids(twitter_ids[0..20]).each do |tweet|
     TweetImporter.import! tweet
   end
 end

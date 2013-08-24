@@ -6,7 +6,7 @@ class Post
   field :message, :type => String
   field :twitter_id, :type => Integer
 
-  embeds_one :picture
+  embeds_one :picture, cascade_callbacks: true
   embeds_one :track
   embeds_one :location
 
@@ -18,11 +18,15 @@ class Post
 
   delegate :exif, :to => :picture
 
-  index :posted_at
+  index :posted_at => 1
 
   validates_presence_of :location
 
-  def self.locations 
+  def self.picture(picture_id)
+    where(:'picture._id' => Moped::BSON::ObjectId(picture_id)).first.picture
+  end
+
+  def self.locations
     Post.unscoped.where(:'location.name'.exists => true).order_by('location.name ASC').distinct('location.name').compact
   end
 end

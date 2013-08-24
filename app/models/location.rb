@@ -7,7 +7,7 @@ class Location
 
   embedded_in :post
 
-  index [:name, :asc]
+  index name: 1
 
   validates_presence_of :longitude, :latitude, :if => proc { |l| l.name.blank? }
 end

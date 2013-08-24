@@ -16,7 +16,7 @@ class Picture
 
   before_create :set_timestamp
 
-  index [:taken_at, :desc]
+  index taken_at: 1
 
   def latitude
     gps_coords[0] if has_location?

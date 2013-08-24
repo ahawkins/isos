@@ -1,7 +1,4 @@
 Isos::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
   root :to => 'posts#index'
 
   resources :posts, :only => :index do
@@ -12,4 +9,7 @@ Isos::Application.routes.draw do
       get :map
     end
   end
+
+  match '/uploads/grid/picture/image/:picture_id/:filename' => 'pictures#wall', constraints: { filename: /wall.*/ }
+  match '/uploads/grid/picture/image/:picture_id/:filename' => 'pictures#gallery', constraints: { filename: /gallery.*/ }
 end

@@ -2,7 +2,7 @@ require 'open-uri'
 
 class TweetImporter
   def self.import!(tweet)
-    return if Post.exists?(:conditions => {:twitter_id => tweet.id})
+    return if Post.where(twitter_id: tweet.id).exists?
 
     begin
       post = Post.new

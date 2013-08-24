@@ -21,6 +21,10 @@ class TwitterScraper
     Tweet.new(Twitter.status(id))
   end
 
+  def self.twitter
+
+  end
+
   class Tweet
     extend ActiveSupport::Memoizable
 
@@ -111,7 +115,8 @@ class TwitterScraper
 
     class YFrogScraper
       def self.scrape(page)
-        page.link_with(:text => 'Direct').href
+        page = page.link_with(:text => 'Continue to the media').click
+        page.link_with(text: 'Direct').href
       end
     end
 

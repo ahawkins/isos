@@ -1,11 +1,11 @@
-section.list > ol > li {
+ol.list li {
   margin: 5px 0;
-  font-family: Big Joe;
+  font-family: 'Rock Salt';
   font-size: 28px;
   text-decoration: none;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 2px 2px 2px #000;
   height: 60px;
 
   &:hover, &:active, &:visited {
