@@ -1,3 +1,5 @@
+require 'time'
+
 task :tweets => :environment do
   require 'twitter_scraper'
   TwitterScraper.tweets.each do |tweet|
@@ -15,13 +17,30 @@ end
 
 desc "Sync development db with current db since twitter is a cunt"
 task :sync => :environment do
-  require 'twitter_scraper'
-  require 'tweet_importer'
-
   hashes = JSON.parse(open('http://isos.broadcastingadam.com/posts.json').read)
-  twitter_ids = hashes.map {|h| h['twitter_id'] }.compact
 
-  TwitterScraper.from_ids(twitter_ids[31..40]).each do |tweet|
-    TweetImporter.import! tweet
+  hashes.each do |hash|
+    next unless hash['posted_at']
+
+    post = Post.new
+
+    post.message = hash.fetch 'message'
+
+    if hash['track']
+      post.build_track :artist => hash.fetch('track').fetch('artist'), :name => hash.fetch('track').fetch('name')
+    end
+
+    if hash['picture']
+      post.create_picture :remote_image_url => hash['picture']['image']['url']
+    end
+
+    if hash['location']
+      post.build_location :latitude => hash['location']['latitude'], :longitude => hash['location']['longitude'], :name => hash['location']['name']
+    end
+
+    post.posted_at = Time.parse hash.fetch('posted_at')
+    post.twitter_id = hash.fetch 'twitter_id', nil
+
+    post.save!
   end
 end

@@ -5,8 +5,6 @@ class Picture
   extend ActiveSupport::Memoizable
   include Mongoid::Document
 
-  attr_accessor :location_name
-
   mount_uploader :image, PictureUploader
   field :taken_at, :type => Time
 
