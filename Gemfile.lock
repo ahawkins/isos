@@ -112,6 +112,8 @@ GEM
     ntlm-http (0.1.1)
     origin (1.1.0)
     polyglot (0.3.3)
+    puma (2.4.0)
+      rack (>= 1.1, < 2.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -203,6 +205,7 @@ DEPENDENCIES
   mechanize
   mongoid
   mongoid-rspec
+  puma
   rails (~> 3.2.0)
   rmagick
   rspec-rails
