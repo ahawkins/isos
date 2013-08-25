@@ -15,7 +15,7 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGHQ_URL'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         safe: true
         skip_version_check: true
