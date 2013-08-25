@@ -27,7 +27,7 @@ class TweetImporter
         post.build_location :latitude => tweet.latitude, :longitude => tweet.longitude, :name => tweet.location
       end
 
-      if post.picture
+      if post.picture && post.picture.taken_at
         post.posted_at = post.picture.taken_at
       else
         post.posted_at = tweet.created_at

@@ -5,10 +5,13 @@ class TwitterScraper
   HASH_TAG = '#isos'
 
   def self.tweets
-    search = Twitter::Search.new
-    search.from FEED
-    search.hashtag HASH_TAG
-    search.fetch.map {|t| Tweet.new(t) }
+    # search = Twitter::Search.new
+    # search.from FEED
+    # search.hashtag HASH_TAG
+    # search.fetch.map {|t| Tweet.new(t) }
+    Twitter.search("from:#{FEED} #{HASH_TAG}", :result_type => "recent").results.map do |status|
+      Tweet.new status
+    end
   end
 
   def self.from_ids(twitter_ids)
@@ -19,10 +22,6 @@ class TwitterScraper
 
   def self.find(id)
     Tweet.new(Twitter.status(id))
-  end
-
-  def self.twitter
-
   end
 
   class Tweet
@@ -88,60 +87,8 @@ class TwitterScraper
     end
 
     def picture
-      return unless picture_link
-
-      agent = Mechanize.new
-      page = agent.get picture_link
-
-      if page.uri.host =~ /twitpic/i
-        TwitPicScraper.scrape page
-      elsif page.uri.host =~ /yfrog/
-        YFrogScraper.scrape page
-      elsif page.uri.host =~ /twitter/
-        TwitterPhotoScraper.scrape page
-      end
-    end
-    memoize :picture
-
-    private
-    def picture_link
-      match = text.match(/(http:\/\/.+\/.+)/)
-      if match
-        match[1]
-      else
-        nil
-      end
-    end
-
-    class YFrogScraper
-      def self.scrape(page)
-        page = page.link_with(:text => 'Continue to the media').click
-        page.link_with(text: 'Direct').href
-      end
-    end
-
-    class TwitPicScraper
-      def self.scrape(page)
-        page = page.links.find {|l| l.href =~ /full/ }.click
-        page.search('//body/img').first.attr('src')
-      end
-    end
-
-    class TwitterPhotoScraper
-      def self.scrape(page)
-        tweet_id = page.uri.to_s.split('/').reverse[2]
-
-        page = page.links.select { |l| l.href == "#{page.uri}/large" }.first.click
-        src = page.search("img.large.media-slideshow-image").first.attr('src')
-
-        FileUtils.mkdir_p Rails.root.join("tmp", "pictures")
-        full_path = Rails.root.join "tmp", "pictures", "#{tweet_id}.jpg"
-        puts "Downloading #{src} -> #{full_path}"
-
-        Curl::Easy.download(src, full_path)
-
-        File.open full_path
-      end
+      return unless @tweet.media
+      @tweet.media.first.media_url
     end
   end
 end
