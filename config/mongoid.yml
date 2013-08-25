@@ -4,3 +4,18 @@ development:
       database: isos_development
       hosts:
         - localhost:27017
+
+test:
+  sessions:
+    default:
+      database: isos_test
+      hosts:
+        - localhost:27017
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGHQ_URL'] %>
+      options:
+        safe: true
+        skip_version_check: true
