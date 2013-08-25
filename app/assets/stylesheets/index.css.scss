@@ -1,3 +1,5 @@
+@import 'compass/css3/box-shadow';
+
 #gallery {
   width: 1095px;
   margin: 100px auto;
@@ -8,7 +10,7 @@
     top: 238px;
     width: 100%;
     background-color: rgba(0, 0, 0, .8);
-    box-shadow: 0 1px 30px rgba(0,0,0,.9);
+    @include box-shadow(0 1px 30px rgba(0,0,0,.9));
     height: 100px;
     text-align: center;
     font-family: 'Rock Salt';

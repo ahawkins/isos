@@ -16,6 +16,7 @@ gem 'mechanize'
 
 group :assets do
   gem 'sass-rails'
+  gem 'compass-rails'
   gem 'uglifier'
 end
 

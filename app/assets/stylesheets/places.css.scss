@@ -1,3 +1,6 @@
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/transition';
+
 html.map {
   height: 100%;
   margin: 0;
@@ -23,7 +26,7 @@ html.map {
     background: rgb(0,0,0);
     opacity: 0.0;
     z-index: 1001;
-    -webkit-transition: opacity 2s ease;
+    @include transition(opacity 2s ease);
 
     &.visible {
       opacity: 0.8;
@@ -56,7 +59,7 @@ html.map {
     top: 15px;
     left: 50%;
     border-radius: 4px;
-    box-shadow: 0 1px 10px rgba(0,0,0,.9);
+    @include box-shadow(0 1px 10px rgba(0,0,0,.9));
     font-family: Helvetica, Arial;
     font-size: 14px;
 
