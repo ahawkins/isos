@@ -4,6 +4,6 @@ module ApplicationHelper
     folders.inject({}) do |h, folder|
       images = Dir[Rails.root.join('app', 'assets', 'images', 'suns', folder, '*.*')]
       h.merge folder => images.map {|i| "/assets/suns/#{folder}/#{File.basename(i)}" }
-    end
+    end.to_json.html_safe
   end
 end

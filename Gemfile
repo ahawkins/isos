@@ -6,8 +6,6 @@ gem 'rails', '~> 3.2.0'
 
 gem 'twitter'
 
-# Asset template engines
-gem 'haml'
 gem 'jquery-rails'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid'

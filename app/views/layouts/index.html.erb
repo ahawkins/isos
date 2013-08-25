@@ -1,0 +1,14 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>In Search of Sunrise</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+  <body class="application" data-background-images='<%= background_images %>'>
+    <%= yield %>
+    <%= render partial: 'shared/gauges' %>
+  </body>
+</html>
