@@ -29,13 +29,14 @@ class Picture
   end
 
   def exif
-    if new_record?
-      EXIFR::JPEG.new(image.file.file)
-    else
-      EXIFR::JPEG.new(open(image.url))
+    @exif ||= begin
+      if new_record?
+        EXIFR::JPEG.new(image.file.file)
+      else
+        EXIFR::JPEG.new(open(image.url))
+      end
     end
   end
-  memoize :exif
 
   private
   def gps_coords
@@ -46,7 +47,6 @@ class Picture
 
     [lat, long]
   end
-  memoize :gps_coords
 
   def set_timestamp
     self.taken_at = exif.date_time || exif.date_time_original
