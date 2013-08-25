@@ -15,7 +15,6 @@ gem 'bson_ext'
 gem 'exifr'
 gem 'rmagick'
 gem 'mechanize'
-gem 'curb'
 
 group :assets do
   gem 'sass-rails'
