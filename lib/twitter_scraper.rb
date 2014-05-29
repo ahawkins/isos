@@ -25,8 +25,6 @@ class TwitterScraper
   end
 
   class Tweet
-    extend ActiveSupport::Memoizable
-
     def initialize(tweet)
       @tweet = tweet
     end
@@ -87,8 +85,22 @@ class TwitterScraper
     end
 
     def picture
-      return unless @tweet.media
-      @tweet.media.first.media_url
+      if @tweet.media.empty? && contains_link?
+        text.match(url_regexp)[1]
+      elsif @tweet.media.any?
+        @tweet.media.first.media_url
+      else
+        nil
+      end
+    end
+
+    private
+    def contains_link?
+      text =~ url_regexp
+    end
+
+    def url_regexp
+      /(http:\/\/[^\s]+)[$\z\s]?/
     end
   end
 end

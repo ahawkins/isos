@@ -43,7 +43,6 @@ GEM
       mongoid (>= 3.0, < 5.0)
       mongoid-grid_fs (~> 1.3)
     chunky_png (1.2.8)
-    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -52,12 +51,6 @@ GEM
       compass (>= 0.12.2, < 0.14)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
-    debugger (1.6.1)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.3)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.4)
     domain_name (0.5.13)
       unf (>= 0.0.5, < 1.0.0)
@@ -67,6 +60,7 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     fssm (0.2.10)
+    hashie (2.1.1)
     hike (1.2.3)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
@@ -199,8 +193,8 @@ DEPENDENCIES
   bson_ext
   carrierwave-mongoid
   compass-rails
-  debugger
   exifr
+  hashie
   jquery-rails
   mechanize
   mongoid

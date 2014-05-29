@@ -23,11 +23,11 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'debugger'
 end
 
 group :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'mongoid-rspec'
+  gem 'hashie'
 end

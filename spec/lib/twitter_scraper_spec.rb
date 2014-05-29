@@ -1,19 +1,8 @@
 require 'spec_helper'
 require 'twitter_scraper'
-require 'hashie'
 
 describe TwitterScraper do
   subject { TwitterScraper }
-
-  it "should find tweets from twitter" do
-    mock_twitter = mock(Twitter::Search)
-    Twitter::Search.stub(:new).and_return(mock_twitter)
-    mock_twitter.should_receive(:from).with('Adman65')
-    mock_twitter.should_receive(:hashtag).with('#isos')
-    mock_twitter.should_receive(:fetch).and_return([])
-
-    subject.tweets
-  end
 
   describe "the tweet wrapper" do
     describe "gps info" do
