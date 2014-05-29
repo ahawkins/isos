@@ -13,7 +13,6 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'exifr'
 gem 'rmagick'
-gem 'mechanize'
 
 group :assets do
   gem 'sass-rails'
