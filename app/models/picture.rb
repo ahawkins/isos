@@ -2,7 +2,6 @@ require 'carrierwave/mongoid'
 require 'open-uri'
 
 class Picture
-  extend ActiveSupport::Memoizable
   include Mongoid::Document
 
   mount_uploader :image, PictureUploader
