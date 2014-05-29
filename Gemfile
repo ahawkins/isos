@@ -25,7 +25,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'simplecov'
   gem 'webmock'
   gem 'mongoid-rspec'
   gem 'hashie'
