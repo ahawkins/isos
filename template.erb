@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>In Search of Sunset - Travel of Adam Hawkins</title>
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+    <style>
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      header h1,
+      header h2 {
+        font-family: 'Rock Salt';
+      }
+
+      header h1 {
+        font-size: 1.8em;
+        margin: 0;
+      }
+
+      header h2 {
+        font-size: 2.4em;
+        margin: 0;
+      }
+
+      header p {
+        font-family: 'Helvetica, Arial, sans-serif';
+        font-style: italic;
+        font-size: 1.2em;
+        color: #4B4B4B;
+      }
+
+      header p:before,
+      header p:after {
+        content:"\2014";
+        margin: 0 0.25em;
+      }
+
+      .pictures {
+        margin-bottom: 60px;
+      }
+
+      .pictures ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .pictures li {
+        display: inline-block;
+        padding: 10px
+      }
+
+      .pictures .image {
+        margin: 0 auto;
+        position: relative;
+        width: 576px;
+        height: 432px;
+        border: solid 1px #FFFFFF;
+        box-shadow: 0 1px 30px rgba(0,0,0,0.9);
+      }
+
+      .pictures .location {
+        position: absolute;
+        z-index: 101;
+        bottom: 36px;
+        width: 576px;
+        height: 30px;
+        background-color: rgba(0,0,0,0.8);
+        border-bottom: solid 1px rgba(0,0,0,0.6);
+        border-top: solid 1px rgba(0,0,0,0.6);
+      }
+
+      .pictures .location p {
+        color: #DEDEDE;
+        font-family: 'Rock Salt';
+        position: absolute;
+        z-index: 102;
+        top: -16px;
+        left: 20px;
+        padding: 0;
+        margin: 0;
+        font-size: 26px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Crossing the Globe</h1>
+        <h2>In Search of Sunset</h2>
+
+        <p>Selected photos from the worldwide travel of Adam Hawkins</p>
+      </header>
+
+      <section class="pictures">
+        <ol>
+        <% @entries.each do |entry| %>
+          <li>
+            <div class="image">
+              <img src="<%= entry.image %>" >
+              <div class="location">
+                <p><%= entry.location %> - <%= entry.date.strftime("%b '%y") %></p>
+              </div>
+            </div>
+          </li>
+        <% end %>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>
