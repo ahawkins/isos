@@ -3,6 +3,10 @@
 IMAGES:=$(addprefix dist/,$(wildcard images/*.jpg))
 DIST:=$(IMAGES) dist/index.html
 
+.PHONY: fixup
+fixup:
+	rename -s .jpeg .jpg images/*.jpeg
+
 .PHONY: check
 check:
 	convert --version
