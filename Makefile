@@ -1,7 +1,8 @@
 .DEFAULT_GOAL:=dist
 
+FOLDERS:=$(addprefix dist/,$(wildcard images/*/*.jpg))
 IMAGES:=$(addprefix dist/,$(wildcard images/*.jpg))
-DIST:=$(IMAGES) dist/index.html
+DIST:=$(IMAGES) $(FOLDERS) dist/index.html
 
 .PHONY: fixup
 fixup:
@@ -11,6 +12,10 @@ fixup:
 check:
 	convert --version
 	cat entries.json | jq . > /dev/null
+
+dist/images/%/%.jpg: images/%/%.jpg
+	mkdir -p $(@D)
+	convert $< -resize 576x432! $@
 
 dist/images/%.jpg: images/%.jpg
 	mkdir -p $(@D)
