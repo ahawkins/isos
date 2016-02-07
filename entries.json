@@ -1,11 +1,23 @@
 [
   {
-    "image": "retreat_sept_15/valley.jpg",
-    "location": "Honsur"
+    "image": "mumbai_16/dusk.jpg",
+    "location": "Mumbai"
   },
   {
-    "image": "pondi_sept_15/beach.jpg",
-    "location": "Pondicherry"
+    "image": "mumbai_16/sunset.jpg",
+    "location": "Mumbai"
+  },
+  {
+    "image": "california_15/san_diego_at_dusk.jpg",
+    "location": "San Diego"
+  },
+  {
+    "image": "california_15/san_diego_sunset.jpg",
+    "location": "San Diego"
+  },
+  {
+    "image": "california_15/golden_gate_bridge.jpg",
+    "location": "Pier 39"
   },
   {
     "image": "pondi_sept_15/beach_house.jpg",
