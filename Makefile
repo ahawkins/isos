@@ -30,7 +30,7 @@ dist: $(DIST)
 
 .PHONY: deploy
 deploy: $(DIST)
-	aws --profile ahawkins s3 sync dist/ s3://isos.hawkins.io
+	aws --profile ahawkins --region eu-west-1 s3 sync dist/ s3://isos.hawkins.io
 
 .PHONY: clean
 clean:
