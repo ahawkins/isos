@@ -5,10 +5,11 @@ require 'time'
 require 'erb'
 require 'open3'
 
-Entry = Struct.new(:image, :date, :location)
+Entry = Struct.new(:image, :date, :location, :aspect_ratio)
 Section = Struct.new(:date, :entries)
 
 ExifError = Class.new StandardError
+IdentifyError = Class.new StandardError
 
 @entries = JSON.load($stdin).map do |data|
   Entry.new.tap do |entry|
@@ -29,6 +30,24 @@ ExifError = Class.new StandardError
       entry.date = Time.parse "#{year}T#{time}Z"
     else
       fail ExifError, "#{data.fetch('image')} - #{stderr.read}"
+    end
+
+    stdin, stdout, stderr, identify = Open3.popen3 %Q{identify -format "%[fx:w/h]\n" "images/#{data.fetch('image')}"}
+
+    if identify.value.success?
+      aspect_ratio = stdout.read.to_f.round(1)
+
+      stdout.close
+      stderr.close
+
+      entry.aspect_ratio = case aspect_ratio
+                            when 1.6..1.8 then '16-9'
+                            when 1.3 then '4-3'
+                            else
+                              fail "Unknown aspect ratio: #{aspect_ratio} for #{data.fetch('image')}"
+                            end
+    else
+      fail IdentifyError, "#{data.fetch('image')} - #{stderr.read}"
     end
   end
 end.sort do |e1, e2|

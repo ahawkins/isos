@@ -15,11 +15,11 @@ check:
 
 dist/images/%/%.jpg: images/%/%.jpg
 	mkdir -p $(@D)
-	convert $< -resize 576x432! $@
+	convert $< -resize 576 $@
 
 dist/images/%.jpg: images/%.jpg
 	mkdir -p $(@D)
-	convert $< -resize 576x432! $@
+	convert $< -resize 576 $@
 
 dist/index.html: entries.json generate.rb template.erb
 	mkdir -p $(@D)
