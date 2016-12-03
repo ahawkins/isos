@@ -16,7 +16,11 @@ IdentifyError = Class.new StandardError
     entry.image = "images/#{data.fetch('image')}"
     entry.location = data.fetch('location')
 
-    stdin, stdout, stderr, exif = Open3.popen3 %Q{exif -t "Date and Time (Original)" --machine-readable "images/#{data.fetch('image')}"}
+    if !File.exists?(entry.image)
+      abort "No such file: #{entry.image}"
+    end
+
+    stdin, stdout, stderr, exif = Open3.popen3 %Q{exif -t "Date and Time (Original)" --machine-readable "#{entry.image}"}
 
     if exif.value.success?
       raw = stdout.read
