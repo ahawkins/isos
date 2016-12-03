@@ -1,5 +1,29 @@
 [
   {
+    "image": "japan_16/temple.jpg",
+    "location": "Japan"
+  },
+  {
+    "image": "japan_16/night_sky.jpg",
+    "location": "Japan"
+  },
+  {
+    "image": "japan_16/night_sakura.jpg",
+    "location": "Japan"
+  },
+  {
+    "image": "japan_16/miyajima.jpg",
+    "location": "Japan"
+  },
+  {
+    "image": "japan_16/ginsa.jpg",
+    "location": "Japan"
+  },
+  {
+    "image": "japan_16/bamboo_forest.jpg",
+    "location": "Japan"
+  },
+  {
     "image": "mumbai_16/dusk.jpg",
     "location": "Mumbai"
   },
