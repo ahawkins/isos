@@ -46,6 +46,7 @@ IdentifyError = Class.new StandardError
 
       entry.aspect_ratio = case aspect_ratio
                             when 1.6..1.8 then '16-9'
+                            when 1.5 then '3-2'
                             when 1.3 then '4-3'
                             else
                               fail "Unknown aspect ratio: #{aspect_ratio} for #{data.fetch('image')}"
